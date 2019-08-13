@@ -35,10 +35,24 @@ export default new Vuex.Store({
             state.products.forEach(product=>{
                 product.price -= 1
             })
+        },
+        reducePrice2: (state, payload)=>{
+            state.products.forEach(product=>{
+                product.price -= payload
+            })
         }
     },
+    // 1.action提交的是mutation[即，mutations中的方法]
+    // 2.通过store.dispatch方法触发action
+    // 3.可以传递参数
+    // 4.可以执行异步操作
+    // 5.异步操作执行完后，才会出发mutation,同步便vueDevtools监听mutation的触发时机与mutation真正的出发时机同步，便于调试
     actions: {
-
+        reducePrice: (context,payload)=>{
+            setTimeout(function () {
+                context.commit('reducePrice2',payload)//提交mutations中的方法，最终执行mutations中的方法
+            },2000)
+        }
     }
 })
 

@@ -7,7 +7,10 @@
                 <span>{{product.price}}</span>
             </li>
         </ul>
+        <!--mutation形式-->
         <button @click="reducePrice()">商品降价</button>
+        <!--action形式-->
+        <button @click="reducePrice2(4)">商品降价_2</button>
     </div>
 </template>
 
@@ -26,8 +29,13 @@
         },
         methods:{
             reducePrice(){
-                //以事件的形式，触发mutation中的方法
+                // 以事件的形式，触发mutation中的方法
+                // reducePrice是mutations中的方法
                 this.$store.commit('reducePrice')
+            },
+            reducePrice2(amount){
+                // reducePrice是action中的方法
+                this.$store.dispatch('reducePrice',amount)
             }
         }
     }
