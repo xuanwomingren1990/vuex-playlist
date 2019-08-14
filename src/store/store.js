@@ -71,4 +71,5 @@ export default new Vuex.Store({
 在组件的计算属性中（computed），直接调用getters中的数据。
 适用于：
         --对state中的数据进行一些操作，但是不改变其值；同时可以供多个组件调用
+4.当
 */

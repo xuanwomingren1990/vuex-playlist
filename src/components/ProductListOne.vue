@@ -15,6 +15,8 @@
 </template>
 
 <script>
+    import {mapGetters} from  'vuex'
+    import {mapActions} from  'vuex'
     export default {
         name: "ProductListOne",
         computed: {
@@ -22,10 +24,16 @@
             products(){
                 return this.$store.state.products
             },
+
+
             // 在计算属性中，调用getters中的属性对象
-            saleProducts(){
-                return this.$store.getters.saleProducts
-            }
+            // saleProducts(){
+            //     return this.$store.getters.saleProducts
+            // }
+            // 当getters和actions中的成员较多时，可以使用辅助函数,将 store 中的 getter 和 action 映射到局部计算属性：
+            ...mapGetters([
+                'saleProducts'//要几个写几个
+            ])
         },
         methods:{
             reducePrice(){
@@ -33,6 +41,7 @@
                 // reducePrice是mutations中的方法
                 this.$store.commit('reducePrice')
             },
+
             reducePrice2(amount){
                 // reducePrice是action中的方法
                 this.$store.dispatch('reducePrice',amount)
