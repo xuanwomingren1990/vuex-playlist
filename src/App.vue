@@ -1,17 +1,36 @@
 <template>
   <div id="app">
-    <product-list-one></product-list-one>
-    <product-list-two></product-list-two>
+      <vuex-state></vuex-state>
+    <vuex-getter></vuex-getter>
+    <vuex-mutation></vuex-mutation>
+    <vuex-action></vuex-action>
+      <span>
+          ---------------------------------
+          ---------------------------------
+          ---------------------------------
+          ---------------------------------
+          ---------------------------------
+          ---------------------------------
+      </span>
+      <vuex-module></vuex-module>
   </div>
 </template>
 <script>
-    import ProductListOne from './components/ProductListOne.vue'
-    import ProductListTwo from './components/ProductListTwo.vue'
+    import VuexGetter from './components/VuexGetter.vue'
+    import VuexState from './components/VuexState.vue'
+    import VuexMutation from './components/VuexMutation.vue'
+    import VuexAction from './components/VuexAction.vue'
+
+    import VuexModule from './components/VuexModule.vue'
   export default {
       name : "app",
       components : {
-          'product-list-one':ProductListOne,
-          'product-list-two':ProductListTwo,
+          VuexGetter,
+          VuexState,
+          VuexMutation,
+          VuexAction,
+
+          VuexModule
       }
   }
 </script>
